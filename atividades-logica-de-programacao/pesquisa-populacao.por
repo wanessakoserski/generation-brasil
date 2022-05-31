@@ -4,9 +4,9 @@ programa
 	funcao inicio()
 	{
 		real salario, maiorSalario = 0, somaSalario = 0, salarioMenor100 = 0
-		inteiro numeroFilhos, somaNumeroFilhos = 0
+		inteiro numeroFilhos, somaNumeroFilhos = 0, quantidadePessoas = 20
 
-		para(inteiro i = 1; i <= 20; i++)
+		para(inteiro i = 1; i <= quantidadePessoas; i++)
 		{
 			escreva("\nBoa tarde insira os dados do habitante " + i + ", por favor")
 			escreva("\nSalário: ")
@@ -30,9 +30,9 @@ programa
 
 		real mediaSalario, mediaFilhos, percentualMenor100
 
-		mediaSalario = somaSalario/20
-		mediaFilhos = somaNumeroFilhos/20
-		percentualMenor100 = (salarioMenor100 * 100)/20
+		mediaSalario = somaSalario/quantidadePessoas
+		mediaFilhos = somaNumeroFilhos/quantidadePessoas
+		percentualMenor100 = (salarioMenor100 * 100)/quantidadePessoas
 		
 		escreva("\nMédia do salário da população: " + mediaSalario
 				+ "\nMédia do número de filhos: " + mediaFilhos
@@ -45,7 +45,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 979; 
+ * @POSICAO-CURSOR = 1064; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
