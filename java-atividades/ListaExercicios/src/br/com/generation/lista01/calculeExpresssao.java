@@ -22,7 +22,7 @@ public class calculeExpresssao
 		r = (a + b) * (a + b);
 		s = (b + c) * (b + c);
 		
-		double d = (r + s)/2;
+		double d = (r + s)/2.0;
 		
 		System.out.println("\nO resultado é " + d);
 	}
