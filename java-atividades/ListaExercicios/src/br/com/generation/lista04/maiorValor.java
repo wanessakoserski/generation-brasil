@@ -1,4 +1,4 @@
-package br.com.generation.lista4;
+package br.com.generation.lista04;
 
 import java.util.Scanner;
 
