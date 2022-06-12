@@ -14,6 +14,7 @@ public class Main {
 		String nome, email;
 		int idade;
 		
+		
 		System.out.printf("Informe seu nome: ");
 		nome = scanner.nextLine();
 		System.out.printf("Informe seu email: ");
@@ -32,6 +33,7 @@ public class Main {
 							+	" e o e-mail cadastrado é "	+ cliente.email);
 		*/
 		
+		/*
 		Aviao aviao = new Aviao();
 		
 		
@@ -51,6 +53,30 @@ public class Main {
 		System.out.println(aviao.partida());
 		System.out.println(aviao.levantarVoo());
 		System.out.println(aviao.aterrisar());
+		*/
+		
+		ProdutoEletronico produto = new ProdutoEletronico();
+		
+		System.out.printf("Qual é o produto: ");
+		produto.produto = scanner.nextLine();
+		System.out.printf("Qual a marca dele: ");
+		produto.marca = scanner.nextLine();
+		System.out.printf("Qual o seu propósito: ");
+		produto.funcao = scanner.nextLine();
+		System.out.printf("Qual seu peso em gramas: ");
+		produto.peso = scanner.nextDouble();
+		System.out.printf("Qual seu preço: ");
+		produto.preco = scanner.nextDouble();
+		
+		System.out.println("\nProduto: " + produto.produto
+									+ "\nMarca: " + produto.marca
+									+ "\nPeso: " + produto.peso + " g"
+									+ "\nPreço: " + produto.preco + " reais");
+		System.out.printf("Staus: ");
+		produto.status();
+		
+		
+		scanner.close();
 	}
 
 }
