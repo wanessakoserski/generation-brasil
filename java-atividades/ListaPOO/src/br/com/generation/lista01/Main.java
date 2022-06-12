@@ -55,6 +55,7 @@ public class Main {
 		System.out.println(aviao.aterrisar());
 		*/
 		
+		/*
 		ProdutoEletronico produto = new ProdutoEletronico();
 		
 		System.out.printf("Qual é o produto: ");
@@ -74,7 +75,7 @@ public class Main {
 									+ "\nPreço: " + produto.preco + " reais");
 		System.out.printf("Staus: ");
 		produto.status();
-		
+		*/
 		
 		scanner.close();
 	}
