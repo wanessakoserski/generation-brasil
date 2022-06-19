@@ -1,17 +1,20 @@
 package fundamentos;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ConversaoTemperatura {
 
 		public static void main(String[] args) {
+			Locale.setDefault(new Locale("en", "US"));
 		
 			// (°F - 32) x 5/9 = °C
 			// (°C / 5/9) + 32 = °F
 			Scanner scanner = new Scanner (System.in);
 			
 			final int aritmetica = 32;
-			final double geometrica = 5/9.0;
+			// var é uma inferêncaia - identificar o tipo - precisa inicializar com a declaração
+			final var geometrica = 5/9.0; 
 			double resultado = 0; //Programa pediu pra inicializar
 			
 			System.out.printf("Digite o valor a ser convertido: ");
@@ -26,13 +29,13 @@ public class ConversaoTemperatura {
 					resultado = (numUser - aritmetica) * geometrica;
 					break;
 				case 'c':
-					resultado = (numUser/geometrica) + aritmetica;
+					resultado = (numUser/(geometrica)) + aritmetica;
 					break;
 				default:
 					System.out.println("Opção inválida");
 					break;
 			}
 			
-			System.out.printf("\n\nTemperatura convertida: " + resultado);
+			System.out.printf("\n\nTemperatura convertida: %.1f ", resultado);
 		}
 }
