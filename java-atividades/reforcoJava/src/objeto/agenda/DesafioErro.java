@@ -2,7 +2,7 @@ package objeto.agenda;
 
 public class DesafioErro {
 	
-	int a = 3;
+	int a = 3; // sem mudança aqui
 	
 	public static void main(String[] args) {
 		
