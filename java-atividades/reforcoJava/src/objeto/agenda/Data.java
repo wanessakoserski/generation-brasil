@@ -1,4 +1,4 @@
-package objeto;
+package objeto.agenda;
 
 public class Data {
 	
