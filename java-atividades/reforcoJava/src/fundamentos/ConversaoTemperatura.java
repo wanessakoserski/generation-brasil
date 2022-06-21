@@ -37,5 +37,7 @@ public class ConversaoTemperatura {
 			}
 			
 			System.out.printf("\n\nTemperatura convertida: %.1f ", resultado);
+			
+			scanner.close();
 		}
 }
