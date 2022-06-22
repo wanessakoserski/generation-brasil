@@ -32,6 +32,8 @@ public class Main {
 		System.out.printf("Total: ");
 		System.out.println(mariaCart2.totalShoppingCart());
 		
+		System.out.println("Maria has " + maria.showCarts() + " carts");
+		
 	}
 
 }

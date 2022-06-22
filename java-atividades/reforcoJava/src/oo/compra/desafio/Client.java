@@ -14,4 +14,16 @@ public class Client {
 		this.name = name;
 	}
 	
+	int showCarts()
+	{
+		int total = 0;
+		
+		for (int i = 0; i < this.carts.size(); i++)
+		{
+			total++;
+		}
+		
+		return total;
+	}
+	
 }
