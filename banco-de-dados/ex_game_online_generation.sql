@@ -5,7 +5,7 @@ USE db_game_online_generation;
 CREATE TABLE tb_characters(
 
 	id BIGINT auto_increment,
-	CharacterName VARCHAR(255),
+	Player VARCHAR(255),
     Class VARCHAR(255),
     Breed VARCHAR(255),
     XP INT,
@@ -102,16 +102,18 @@ UPDATE tb_classes
 SET PrificienciesInResistance = "Sabedoria & Carisma"
 WHERE Class = "Paladino";
 
-INSERT INTO tb_characters (CharacterName, Class, Breed, XP)
+INSERT INTO tb_characters (Player, Class, Breed, XP)
 VALUES("Ryan Paixão", "Mago", "Elfo", 0);
-INSERT INTO tb_characters (CharacterName, Class, Breed, XP)
+INSERT INTO tb_characters (Player, Class, Breed, XP)
 VALUES("Matheus Lima", "Monge", "Tiefling", 10);
-INSERT INTO tb_characters (CharacterName, Class, Breed, XP)
+INSERT INTO tb_characters (Player, Class, Breed, XP)
 VALUES("Wanessa Koserski", "Druida", "Halfing", 300);
 
-SELECT tb_characters.CharacterName, tb_characters.Breed, tb_characters.Class, tb_classes.PrimarySkill, tb_breed.Trend 
+SELECT tb_characters.Player, tb_characters.Breed, tb_characters.Class, tb_classes.PrimarySkill, tb_breed.Trend 
 FROM tb_characters  
 INNER JOIN tb_classes ON tb_characters.Class = tb_classes.Class
 INNER JOIN tb_breed ON tb_characters.Breed = tb_breed.Breed;
 
 SELECT * FROM tb_classes WHERE Class LIKE "b%";
+
+DELETE FROM tb_characters WHERE id = 1 or id = 2 or id = 3;
