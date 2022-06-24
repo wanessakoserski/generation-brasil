@@ -113,3 +113,5 @@ SELECT tb_characters.CharacterName, tb_characters.Breed, tb_characters.Class, tb
 FROM tb_characters  
 INNER JOIN tb_classes ON tb_characters.Class = tb_classes.Class
 INNER JOIN tb_breed ON tb_characters.Breed = tb_breed.Breed;
+
+SELECT * FROM tb_classes WHERE Class LIKE "b%";
