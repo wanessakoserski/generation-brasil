@@ -3,6 +3,8 @@ package com.generation.cm.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.generation.cm.exception.ExplosionException;
+
 public class Field {
 
 	private final int line;
@@ -14,10 +16,12 @@ public class Field {
 	
 	private List<Field> neighbors = new ArrayList<>();
 	
+	
 	Field(int line, int column) {
 		this.line = line;
 		this.column = column;
 	}
+	
 	
 	boolean addNeighbor(Field neighbor) {
 		boolean differentLine = line != neighbor.line;
@@ -37,6 +41,46 @@ public class Field {
 		} else {
 			return false;
 		}
+	}
+	
+	
+	void addFlag() {
+		
+		if(!chosen) {
+			flaged = !flaged;
+		}
+		
+	}
+	
+	
+	boolean choose() {
+		
+		if(!chosen && !flaged) {			
+			chosen = true;
+			
+			if(mine) {
+				throw new ExplosionException();
+			}
+			
+			if(saveNeighbors()) {
+				neighbors.forEach(v -> v.choose());
+			}
+			
+			return true;		
+		} else {			
+			return false;			
+		}
+		
+	}
+	
+	boolean saveNeighbors() {
+		
+		return neighbors.stream().noneMatch(v -> v.mine);
+		
+	}
+	
+	public boolean isFlaged() {
+		return flaged;
 	}
 	
 }
