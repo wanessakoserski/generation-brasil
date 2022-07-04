@@ -32,7 +32,7 @@ public class Field {
 		int deltaColumn = Math.abs(column - neighbor.column);
 		int delta = deltaLine + deltaColumn;
 		
-		if(delta == 1 && !diagonal) { //acho que a diagonal não é necessária
+		if(delta == 1) { //acho que a diagonal não é necessária
 			neighbors.add(neighbor);
 			return true;
 		} else if(delta == 2 && diagonal) {

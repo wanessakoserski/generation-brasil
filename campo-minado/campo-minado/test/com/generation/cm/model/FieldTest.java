@@ -23,7 +23,11 @@ class FieldTest {
 		{
 			for(int j = 2; j <= 4; j++)
 			{
-				if (i != 3 && j != 3) {
+				if (i != 3 || j != 3) { 
+					// se colocar && ele vai entender que em qualquer caso que exista um 3 é falso
+					// meu objetivo é apenas quando ambos forem 3 e 3
+					// então colocou || para que os casos em que apenas um deles é 3, também seja verdadeiro
+					
 					neighbor = new Field(i, j);
 					
 					boolean result = field.addNeighbor(neighbor);
@@ -37,7 +41,7 @@ class FieldTest {
 	@Test
 	void tryNeighborFalseBefore() {
 		Field neighbor;
-		
+		 
 		for(int i = 0; i < 2; i++)
 		{
 			for(int j = 0; j < 6; j++)
