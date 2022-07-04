@@ -129,16 +129,16 @@ public class Field {
 	
 	public String toString() {
 		if(flaged) {
-			return "-";
+			return "O";
 		} else if(chosen && mine) {
-			return "*";
+			return " * ";
 		} else if(chosen && minedNeighborhood() > 0) {
 			return Long.toString(minedNeighborhood());
 		} else if(chosen) {
-			return "0";
+			return "   ";
 		}
 		else {
-			return "X";
+			return "•";
 		}
 	}
 	

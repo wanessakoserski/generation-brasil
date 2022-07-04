@@ -84,19 +84,27 @@ public class Board {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		int index = 0;
-		sb.append("   ");
+		sb.append("\t");
 		for(int j = 0; j < columns; j++) {
-			sb.append(" " + j + " "); 
+			if(j < 10) {
+				sb.append("0" + j + "\t"); 
+			} else {
+				sb.append( j + "\t"); 
+			}
 		}
 		
 		sb.append("\n");
 		
 		for(int i = 0; i < lines; i++) {
-			sb.append(i + " ");
+			if(i < 10) {
+				sb.append("0" + i + "\t");
+			} else {
+				sb.append(i + "\t");
+			}
 			for(int j = 0; j < columns; j++) {
-				sb.append(" ");
-				sb.append(fields.get(index));
-				sb.append(" ");
+				
+				sb.append(" " + fields.get(index) + " ");
+				sb.append("\t");
 				
 				index++;
 			}
