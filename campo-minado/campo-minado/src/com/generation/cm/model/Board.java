@@ -21,6 +21,20 @@ public class Board {
 		seeNeighbors();
 		randomizeMines();
 	}
+	
+	public void choose(int line, int column) {
+		fields.parallelStream()                   // tornar a busca mais rápida
+			.filter(f -> f.getLine() == line && f.getColumn() == column)
+			.findFirst()								 // tornar o resultado para o java como unico (Optinal)
+			.ifPresent(f -> f.choose());                          
+	}
+	
+	public void addFlag(int line, int column) {
+		fields.parallelStream()                   // tornar a busca mais rápida
+			.filter(f -> f.getLine() == line && f.getColumn() == column)
+			.findFirst()								 // tornar o resultado para o java como unico (Optinal)
+			.ifPresent(f -> f.addFlag());                          
+	}
 
 	private void generateFields() {
 		for(int i = 0; i < lines; i++) {
@@ -56,6 +70,24 @@ public class Board {
 	public void restart() {
 		fields.stream().forEach(f -> f.restart());
 		randomizeMines();
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		int index = 0;
+		
+		for(int i = 0; i < lines; i++) {
+			for(int j = 0; j < columns; j++) {
+				sb.append(" ");
+				sb.append(fields.get(index));
+				sb.append(" ");
+				
+				index++;
+			}
+			sb.append("\n");
+		}
+		
+		return sb.toString();
 	}
 	
 }
