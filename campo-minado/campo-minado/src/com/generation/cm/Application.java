@@ -1,17 +1,15 @@
 package com.generation.cm;
 
 import com.generation.cm.model.Board;
+import com.generation.cm.vision.BoardConsole;
 
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		
 		Board board = new Board(6, 6, 6);
-
-		board.choose(3, 3);
-		board.addFlag(3, 2);
 		
-		System.out.println(board);
+		new BoardConsole(board);		
 		
 	}
 
