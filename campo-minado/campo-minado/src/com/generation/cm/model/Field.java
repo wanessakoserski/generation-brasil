@@ -99,6 +99,10 @@ public class Field {
 		return mine;
 	}
 	
+	void setChosen(boolean chosen) {
+		this.chosen = chosen;
+	}
+	
 	public int getLine() {
 		return line;
 	}
@@ -125,16 +129,16 @@ public class Field {
 	
 	public String toString() {
 		if(flaged) {
-			return "x";
+			return "-";
 		} else if(chosen && mine) {
 			return "*";
 		} else if(chosen && minedNeighborhood() > 0) {
 			return Long.toString(minedNeighborhood());
 		} else if(chosen) {
-			return "o";
+			return "0";
 		}
 		else {
-			return "?";
+			return "X";
 		}
 	}
 	

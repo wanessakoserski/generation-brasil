@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import com.generation.cm.exception.ExplosionException;
+
 public class Board {
 
 	private int lines;
@@ -23,10 +25,16 @@ public class Board {
 	}
 	
 	public void choose(int line, int column) {
-		fields.parallelStream()                   // tornar a busca mais rápida
-			.filter(f -> f.getLine() == line && f.getColumn() == column)
-			.findFirst()								 // tornar o resultado para o java como unico (Optinal)
-			.ifPresent(f -> f.choose());                          
+		 try {
+			 fields.parallelStream()                   // tornar a busca mais rápida
+				.filter(f -> f.getLine() == line && f.getColumn() == column)
+				.findFirst()								 // tornar o resultado para o java como unico (Optinal)
+				.ifPresent(f -> f.choose());     
+		 } catch(ExplosionException e) {
+			 fields.forEach(f -> f.setChosen(true));
+			 
+			 throw e;
+		 }
 	}
 	
 	public void addFlag(int line, int column) {
@@ -57,9 +65,10 @@ public class Board {
 		Predicate<Field> mined = f -> f.isMined();
 		
 		do {
-			definedMines = fields.stream().filter(mined).count();
 			int randomIndex = (int) (Math.random() * fields.size());
 			fields.get(randomIndex).addMine();
+			
+			definedMines = fields.stream().filter(mined).count();
 		} while(definedMines < mines);
 	}
 	
@@ -75,8 +84,15 @@ public class Board {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		int index = 0;
+		sb.append("   ");
+		for(int j = 0; j < columns; j++) {
+			sb.append(" " + j + " "); 
+		}
+		
+		sb.append("\n");
 		
 		for(int i = 0; i < lines; i++) {
+			sb.append(i + " ");
 			for(int j = 0; j < columns; j++) {
 				sb.append(" ");
 				sb.append(fields.get(index));
