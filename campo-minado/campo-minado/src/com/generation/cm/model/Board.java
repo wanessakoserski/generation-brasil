@@ -2,6 +2,7 @@ package com.generation.cm.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Board {
 
@@ -38,7 +39,23 @@ public class Board {
 	}
 	
 	private void randomizeMines() {
+		long definedMines = 0;
+		Predicate<Field> mined = f -> f.isMined();
 		
+		do {
+			definedMines = fields.stream().filter(mined).count();
+			int randomIndex = (int) (Math.random() * fields.size());
+			fields.get(randomIndex).addMine();
+		} while(definedMines < mines);
+	}
+	
+	public boolean goalAchieved() {
+		return fields.stream().allMatch(f -> f.checkGoals());
+	}
+	
+	public void restart() {
+		fields.stream().forEach(f -> f.restart());
+		randomizeMines();
 	}
 	
 }

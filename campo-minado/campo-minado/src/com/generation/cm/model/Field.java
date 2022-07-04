@@ -95,6 +95,10 @@ public class Field {
 		return !chosen;
 	}
 	
+	public boolean isMined() {
+		return mine;
+	}
+	
 	public int getLine() {
 		return line;
 	}
