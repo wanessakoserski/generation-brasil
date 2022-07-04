@@ -36,6 +36,8 @@ public class Usuario {
 	
 	private String foto;
 	
+	private boolean admin = false;
+	
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("produto")
 	private List<Produto> produtos;
@@ -80,6 +82,10 @@ public class Usuario {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+	
+	public boolean getAdmin() {
+		return admin;
 	}
 
 	public List<Produto> getProdutos() {
