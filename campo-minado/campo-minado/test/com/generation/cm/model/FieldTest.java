@@ -1,9 +1,13 @@
 package com.generation.cm.model;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.generation.cm.exception.ExplosionException;
 
 class FieldTest {
 	
@@ -92,6 +96,39 @@ class FieldTest {
 		
 		// assertFalse(field.isFlaged());
 		assertTrue(field.isFlaged());
+	}
+	
+	@Test
+	void tryChooseNotMineNotFlaged() {
+		assertTrue(field.choose());
+	}
+	
+	@Test
+	void tryChooseNotMineButFlaged() {
+		field.addFlag();
+		assertFalse(field.choose());
+	}
+	
+	@Test
+	void tryChooseWithMineNotFlaged() {
+		field.addMine();
+		assertThrows(ExplosionException.class, () -> {
+			field.choose();
+		});
+	}
+	
+	@Test
+	void tryChooseNeighbor() {
+		Field neighborNext = new Field(2, 2);
+		Field neighborFar = new Field(1, 1);
+		
+		neighborNext.addNeighbor(neighborFar);	
+		field.addNeighbor(neighborNext);	
+		
+		field.choose();	
+		assertTrue(field.isOpened());
+		assertTrue(neighborNext.isOpened());
+		assertTrue(neighborFar.isOpened());
 	}
 	
 }

@@ -52,6 +52,10 @@ public class Field {
 		
 	}
 	
+	void addMine() {
+		mine = true;
+	}
+	
 	
 	boolean choose() {
 		
@@ -81,6 +85,53 @@ public class Field {
 	
 	public boolean isFlaged() {
 		return flaged;
+	}
+	
+	public boolean isOpened() {
+		return chosen;
+	}
+	
+	public boolean isClosed() {
+		return !chosen;
+	}
+	
+	public int getLine() {
+		return line;
+	}
+	
+	public int getColumn() {
+		return column;
+	}
+	
+	boolean checkGoals() {
+		boolean correctMove = !mine && chosen;
+		boolean protectField = mine && flaged;
+		return correctMove || protectField;
+	}
+	
+	long minedNeighborhood() {
+		return neighbors.stream().filter(v -> v.mine).count();
+	}
+	
+	void restart() {
+		chosen = false;
+		mine = false;
+		flaged = false;
+	}
+	
+	public String toString() {
+		if(flaged) {
+			return "x";
+		} else if(chosen && mine) {
+			return "*";
+		} else if(chosen && minedNeighborhood() > 0) {
+			return Long.toString(minedNeighborhood());
+		} else if(chosen) {
+			return "o";
+		}
+		else {
+			return "?";
+		}
 	}
 	
 }
