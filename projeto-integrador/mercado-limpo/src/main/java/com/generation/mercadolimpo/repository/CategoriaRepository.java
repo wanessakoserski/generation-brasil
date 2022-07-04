@@ -1,13 +1,15 @@
 package com.generation.mercadolimpo.repository;
 
 import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.generation.mercadolimpo.model.Categoria;
 
 @Repository
-public interface CategoriaRepository {
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
-	public List<Categoria> findAllByNameContainingIgnoreCase(String categoria);
-	public List<Categoria> findAllByTypeContainingIgnoreCase(String tipo);
+	public List<Categoria> findAllByCategoriaContainingIgnoreCase(String categoria);
+	public List<Categoria> findAllByTipoContainingIgnoreCase(String tipo);
 	
 }
