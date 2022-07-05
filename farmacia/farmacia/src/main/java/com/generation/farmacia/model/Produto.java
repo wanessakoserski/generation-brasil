@@ -30,11 +30,8 @@ public class Produto {
 	@Size(min = 3)
 	private String descricao;
 	
-	@NotBlank(message = "precisa inserir a marca do produto")
-	private String marca;
-	
 	@ManyToOne
-	@JsonIgnoreProperties("produto")
+	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
 
 	
@@ -69,14 +66,6 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public String getMarca() {
-		return marca;
-	}
-
-	public void setMarca(String marca) {
-		this.marca = marca;
 	}
 
 	public Categoria getCategoria() {
