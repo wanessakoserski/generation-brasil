@@ -21,8 +21,8 @@ public class Categoria {
 	@NotNull
 	private String departamento;
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria")
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) // nome de como vai chamar a palavra de ligação entre tabelas
+	@JsonIgnoreProperties("categoria") // não entrar nos produtos dentro dessa categoria
 	private List<Produto> produtos;
 	
 	
