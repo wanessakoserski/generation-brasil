@@ -25,12 +25,12 @@ public class Game {
 	private String description;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("category")
+	@JsonIgnoreProperties("game")
 	private Category category;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("email")
-	private User email;
+	@JsonIgnoreProperties("game")
+	private User user;
 
 	
 	
@@ -66,12 +66,12 @@ public class Game {
 		this.category = category;
 	}
 
-	public User getEmail() {
-		return email;
+	public User getUser() {
+		return user;
 	}
 
-	public void setEmail(User email) {
-		this.email = email;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

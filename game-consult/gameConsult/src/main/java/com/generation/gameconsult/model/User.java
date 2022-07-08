@@ -38,8 +38,8 @@ public class User {
 	@UpdateTimestamp
     private Date created =  new java.util.Date(System.currentTimeMillis());
 	
-	@OneToMany(mappedBy = "email", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("email")
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("user")
 	private List<Game> game;
 
 	
