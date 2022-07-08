@@ -21,7 +21,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_usuario;
+	private long id;
 	
 	@NotBlank(message = "Nome não pode estar vazio ou nulo")
 	private String nome;
@@ -38,18 +38,18 @@ public class Usuario {
 	
 	// private boolean admin = false;
 	
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("produto")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
 	private List<Produto> produtos;
 
 	
 	
 	public long getId() {
-		return id_usuario;
+		return id;
 	}
 
-	public void setId(long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
