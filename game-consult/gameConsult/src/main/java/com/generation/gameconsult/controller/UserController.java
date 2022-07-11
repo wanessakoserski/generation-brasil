@@ -31,17 +31,7 @@ public class UserController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("email/{email}")
-	public ResponseEntity<User> getByEmail(@PathVariable String email) {
-		return repository.findById(email)
-							.map(m -> ResponseEntity.ok(m))
-							.orElse(ResponseEntity.notFound().build());
-	}
 	
-	@GetMapping("name/{username}")
-	public ResponseEntity<List<User>> getByName(@PathVariable String username) {
-		return ResponseEntity.ok(repository.findAllByUsernameContainingIgnoreCase(username));
-	}
 	
 	@PostMapping
 	public ResponseEntity<User> post(@RequestBody User user) {
@@ -53,10 +43,6 @@ public class UserController {
 	public ResponseEntity<User> put (@RequestBody User user) {
 		return ResponseEntity.ok(repository.save(user));
 	}
-	
-	@DeleteMapping("/{email}")
-	public void delete(@PathVariable String email) {
-		repository.deleteById(email);
-	}
+
 	
 }
