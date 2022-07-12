@@ -1,22 +1,19 @@
 package com.generation.gameconsult.controller;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.gameconsult.model.User;
-import com.generation.gameconsult.repository.UserRepository;
+import com.generation.gameconsult.model.UserLogIn;
+import com.generation.gameconsult.service.UserService;
 
 @RestController
 @RequestMapping("/user")
@@ -24,25 +21,18 @@ import com.generation.gameconsult.repository.UserRepository;
 public class UserController {
 	
 	@Autowired
-	private UserRepository repository;
+	private UserService userService;
 
-	@GetMapping
-	public ResponseEntity<List<User>> getAll() {
-		return ResponseEntity.ok(repository.findAll());
+	@PostMapping("/login")
+	public ResponseEntity<UserLogIn> Autentication(@RequestBody Optional<UserLogIn> user) {
+		return userService.Login(user).map(m -> ResponseEntity.ok(m))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
-	
-	
-	@PostMapping
+	@PostMapping("/register")
 	public ResponseEntity<User> post(@RequestBody User user) {
 		return ResponseEntity.status(HttpStatus.CREATED)
-								.body(repository.save(user));
+				.body(userService.RegisterUser(user));
 	}
-	
-	@PutMapping
-	public ResponseEntity<User> put (@RequestBody User user) {
-		return ResponseEntity.ok(repository.save(user));
-	}
-
 	
 }
