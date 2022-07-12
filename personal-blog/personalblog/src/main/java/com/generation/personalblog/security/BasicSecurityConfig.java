@@ -36,8 +36,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("usuario/login").permitAll()
-			.antMatchers("usuario/cadastrar").permitAll()
+			.antMatchers("/usuario/login").permitAll()
+			.antMatchers("/usuario/cadastrar").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll() 
 			.anyRequest().authenticated()
 			.and().httpBasic()
