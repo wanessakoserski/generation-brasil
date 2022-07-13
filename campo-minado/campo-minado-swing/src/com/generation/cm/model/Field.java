@@ -13,6 +13,8 @@ public class Field {
 	private boolean flaged = false;
 	
 	private List<Field> neighbors = new ArrayList<>();
+	private List<FieldObserver> observers = new ArrayList<>();
+	// private List<BiConsumer<T, U>>
 	
 	
 	Field(int line, int column) {
@@ -20,6 +22,13 @@ public class Field {
 		this.column = column;
 	}
 	
+	public void registerObserver(FieldObserver observer) {	
+		observers.add(observer);
+	}
+	
+	private void notifyObservers(FieldEvent event) {
+		observers.stream().forEach(obs -> obs.eventOccurred(this, event));
+	}
 	
 	boolean addNeighbor(Field neighbor) {
 		boolean differentLine = line != neighbor.line;
@@ -46,6 +55,12 @@ public class Field {
 		
 		if(!chosen) {
 			flaged = !flaged;
+			
+			if(chosen) {
+				notifyObservers(FieldEvent.CHECK);
+			} else {
+				notifyObservers(FieldEvent.UNCHECK);
+			}
 		}
 		
 	}
@@ -57,12 +72,13 @@ public class Field {
 	
 	boolean choose() {
 		
-		if(!chosen && !flaged) {			
-			chosen = true;
-			
+		if(!chosen && !flaged) {					
 			if(mine) {
-				// TODO Implementar nova versão
+				notifyObservers(FieldEvent.EXPLODE);
+				return true;
 			}
+			
+			setChosen(true);
 			
 			if(saveNeighbors()) {
 				neighbors.forEach(v -> v.choose());
@@ -99,6 +115,10 @@ public class Field {
 	
 	void setChosen(boolean chosen) {
 		this.chosen = chosen;
+		
+		if(chosen) {
+			notifyObservers(FieldEvent.OPEN);
+		}
 	}
 	
 	public int getLine() {
