@@ -10,9 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -27,14 +25,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Email
+	@NotBlank
 	private String email;
 	
 	@NotBlank
 	private String username;
 	
 	@NotBlank
-	@Size(min = 3, max = 10)
 	private String password;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
@@ -81,11 +78,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Date getBithday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBithday(Date birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

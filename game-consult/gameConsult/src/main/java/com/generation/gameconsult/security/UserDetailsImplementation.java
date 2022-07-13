@@ -1,6 +1,7 @@
 package com.generation.gameconsult.security;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ public class UserDetailsImplementation implements UserDetails{
 	
 	private String username;
 	private String password;
+	private List<GrantedAuthority> authorities;
 	
 	public UserDetailsImplementation(User user) {
 		this.username = user.getEmail();
@@ -24,7 +26,7 @@ public class UserDetailsImplementation implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	@Override
