@@ -2,15 +2,17 @@ package com.generation.cm.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Board {
+public class Board implements FieldObserver{
 
 	private int lines;
 	private int columns;
 	private int mines;
 	
 	private final List<Field> fields = new ArrayList<>();
+	private final List<Consumer<ResultEvent>> observers = new ArrayList<>();
 
 	public Board(int lines, int columns, int mines) {
 		this.lines = lines;
@@ -22,18 +24,19 @@ public class Board {
 		randomizeMines();
 	}
 	
+	public void registerObserver(Consumer<ResultEvent> observer) {
+		observers.add(observer);
+	}
+	
+	private void notifyObservers(boolean result) {
+		observers.stream().forEach(obs -> obs.accept(new ResultEvent(result)));
+	}
+	
 	public void choose(int line, int column) {
-		 try {
-			 fields.parallelStream()                   // tornar a busca mais rápida
+		fields.parallelStream()                   // tornar a busca mais rápida
 				.filter(f -> f.getLine() == line && f.getColumn() == column)
 				.findFirst()								 // tornar o resultado para o java como unico (Optinal)
 				.ifPresent(f -> f.choose());     
-		 } catch(Exception e) {
-			 // FIXME Ajustar a implementação do método choose
-			 fields.forEach(f -> f.setChosen(true));
-			 
-			 throw e;
-		 }
 	}
 	
 	public void addFlag(int line, int column) {
@@ -46,7 +49,9 @@ public class Board {
 	private void generateFields() {
 		for(int i = 0; i < lines; i++) {
 			for(int j = 0; j < columns; j++) {
-				fields.add(new Field(i, j));
+				Field field = new Field(i, j);
+				field.registerObserver(this);
+				fields.add(field);
 			}
 		}
 	}
@@ -78,6 +83,23 @@ public class Board {
 	public void restart() {
 		fields.stream().forEach(f -> f.restart());
 		randomizeMines();
+	}
+
+	@Override
+	public void eventOccurred(Field field, FieldEvent event) {
+		if(event == FieldEvent.EXPLODE) {
+			showMines();
+			notifyObservers(false);
+		} else if(goalAchieved()) {
+			notifyObservers(true);
+		}
+			
+	}
+	
+	private void showMines() {
+		 fields.stream()
+		 		.filter(f -> f.isMined())
+		 		.forEach(f -> f.setChosen(true));
 	}
 	
 }
