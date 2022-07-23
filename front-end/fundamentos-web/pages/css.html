@@ -4,17 +4,101 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CSS - Fundamentos Web</title>
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
     </head>
     <body>
-        <h1>FRONT END</h1>
-        <ul>
-            <li><a href="../index.html">Fundamentos Web</a></li>
-            <li><a href="./html.html">HTML</a></li>
-            <li><a href="./css.html">CSS</a></li>
-            <li><a href="./js.html">JS</a></li>
-            <li><a href="./contact.html">Sugestões</a></li>
-        </ul>
+        <div class="nav">
+            <h1>FRONT END</h1>
+            <ul class="menu">
+                <li><a href="../index.html">Fundamentos Web</a></li>
+                <li><a href="./html.html">HTML</a></li>
+                <!-- <li><a href="./css.html">CSS</a></li> -->
+                <li><a href="./js.html">JS</a></li>
+                <li><a href="./contact.html">Sugestões</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-container">
+            <h2>CSS</h2>
 
-        <h2>CSS</h2>
+            <div class="sub-container">
+                <h3>Definição</h3>
+                <p>&nbsp;
+                    CSS (Cascading Style Sheets) é usado para formatar o layout de uma 
+                    página da web.
+                </p>
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="Ícone 
+                    da linguagem de marcação CSS3. Formato de um pentágono azul com a sombra 
+                    branca do número 3 no meio">
+                </div>
+                <p>&nbsp;
+                    Com CSS, você pode controlar a cor, a fonte, o tamanho do texto, o 
+                    espaçamento entre os elementos, como os elementos são posicionados 
+                    e dispostos, quais imagens ou cores de plano de fundo serão usadas,
+                    diferentes telas para diferentes dispositivos e tamanhos de telas
+                    e muito mais.
+                </p>
+            </div>
+            
+            <div class="sub-container">
+                <h3>Como funciona?</h3>
+                <p>
+                    O CSS pode ser adicionado aos documentos HTML de três maneiras:
+                </p>
+                <ul>
+                    <li><strong>Inline</strong></li>
+                    <ul>
+                        <li>Usando o atributo <code>style</code> dentro dos elementos HTML.</li>
+                    </ul>
+        
+                    <li><strong>Interno</strong></li>
+                    <ul>
+                        <li>Usando um elemento <code>&lt;style&gt;</code> na <code>&lt;head&gt;</code> da página.</li>
+                    </ul>
+        
+                    <li><strong>Externo</strong></li>
+                    <ul>
+                        <li>Usando um elemento <code>&lt;link&gt;</code> para vincular a um arquivo CSS externo.</li>
+                    </ul>
+                </ul>
+            </div>
+            
+            <div class="sub-container">
+                <h3>Conceitos</h3>
+                <h4>Seletores</h4>
+                <p>
+                    Os seletores podem ser: uma <em>tag</em>, um <em>id</em> de uma tag
+                    ou uma <em>classe</em>, ele serve para especificar no CSS qual 
+                    elemento ou grupo de elementos será modificado através das 
+                    propriedades CSS.
+                </p>
+                <h4>Propriedades</h4>
+                <p>
+                    As propriedades de um código CSS, servem para dizer qual será o 
+                    comportamento daquele seletor específico.
+                </p>
+                <p>
+                    No exemplo anterior utilizei a propriedade <code>font-size</code>
+                    para determonar que todo parágrafo do meu HTML terá esse tamanho 
+                    de fonte.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/wanessa-koserski-dos-santos/" target="_blank">
+                    <img src="../assets/images/linkedin.png" alt="Logo do LinkedIn">
+                </a>
+                <a href="https://github.com/wanessakoserski" target="_blank">
+                    <img src="../assets/images/github.png" alt="Logo do GitHub">
+                </a>
+            </div>
+
+            <p>
+                Todos os direitor reservados: Wanessa Koserski dos Santos &copy;
+            </p>
+        </footer> 
     </body>
 </html>

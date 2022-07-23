@@ -4,32 +4,51 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sugestão - Fundamentos Web</title>
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
     </head>
     <body>
-        <h1>FRONT END</h1>
-        <ul>
-            <li><a href="../index.html">Fundamentos Web</a></li>
-            <li><a href="./html.html">HTML</a></li>
-            <li><a href="./css.html">CSS</a></li>
-            <li><a href="./js.html">JS</a></li>
-            <li><a href="./contact.html">Sugestões</a></li>
-        </ul>
+        <div class="nav">
+            <h1>FRONT END</h1>
+            <ul class="menu">
+                <li><a href="../index.html">Fundamentos Web</a></li>
+                <li><a href="./html.html">HTML</a></li>
+                <li><a href="./css.html">CSS</a></li>
+                <li><a href="./js.html">JS</a></li>
+            </ul>
+        </div>
+        
+        <div id="sugestion-container">
+            <h2>Sugestões</h2>
+            <form>
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome">
+    
+                <label for="email">E-mail: </label>
+                <input type="email" id="email">
+    
+                <label for="parte">Em qual parte: </label>
+                <input type="text" id="parte">
+    
+                <label for="sugestao">Sugestão: </label>
+                <textarea name="sugestao" id="sugestao" cols="30" rows="3"></textarea>
+                
+                <button>Enviar</button>
+            </form>
+        </div>
+        <hr>
+        <footer>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/wanessa-koserski-dos-santos/" target="_blank">
+                    <img src="../assets/images/linkedin.png" alt="Logo do LinkedIn">
+                </a>
+                <a href="https://github.com/wanessakoserski" target="_blank">
+                    <img src="../assets/images/github.png" alt="Logo do GitHub">
+                </a>
+            </div>
 
-        <h2>Sugestões</h2>
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome">
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email">
-
-            <label for="parte">Em qual parte:</label>
-            <input type="text" id="parte">
-
-            <label for="sugestao">Sugestão:</label>
-            <textarea name="sugestao" id="sugestao" cols="30" rows="3"></textarea>
-            
-            <button>Enviar</button>
-        </form>
+            <p>
+                Todos os direitor reservados: Wanessa Koserski dos Santos &copy;
+            </p>
+        </footer> 
     </body>
 </html>

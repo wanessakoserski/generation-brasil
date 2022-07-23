@@ -4,153 +4,184 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HTML - Fundamentos Web</title>
+        <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
     </head>
     <body>
-        <h1>FRONT END</h1>
-        <ul>
-            <li><a href="../index.html">Fundamentos Web</a></li>
-            <li><a href="./html.html">HTML</a></li>
-            <li><a href="./css.html">CSS</a></li>
-            <li><a href="./js.html">JS</a></li>
-            <li><a href="./contact.html">Sugestões</a></li>
-        </ul>
+        <div class="nav">
+            <h1>FRONT END</h1>
+            <ul class="menu">
+                <li><a href="../index.html">Fundamentos Web</a></li>
+                <!-- <li><a href="./html.html">HTML</a></li> -->
+                <li><a href="./css.html">CSS</a></li>
+                <li><a href="./js.html">JS</a></li>
+                <li><a href="./contact.html">Sugestões</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-container">
+            <h2>HTML</h2>
 
-        <h2>HTML</h2>
-        <h3>Definição</h3>
-        <p>
-            HTML é uma linguagem de marcação utilizada na construção de páginas
-            na Web. Documentos HTML podem ser interpretador por navegadores.
-        </p>
-        <img src="https://cdn-icons-png.flaticon.com/512/226/226269.png" alt="Ícone da linguagem de marcação HTML5. 
-        Formato de um pentágono laranja com a sombra do número 5 em branco no meio">
-        <p>
-            O HTML foi inventado por Tim Berners-Lee, um físico do centro de 
-            pesquisas CERN, na Suíça. Ele surgiu com a ideia de ums sistema de
-            hipertexto na internet.
-        </p>
-        <p>
-            Hipertexto signigica um texto que possui referências (links) para
-            outros textos que podem ser acessados imediatamente.
-        </p>
+            <div class="sub-container">
+                <h3>Definição</h3>
+                <p>&nbsp;
+                    HTML é uma linguagem de marcação utilizada na construção de páginas
+                    na Web. Documentos HTML podem ser interpretador por navegadores.
+                </p>
+                <div class="icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Ícone da linguagem de marcação HTML5. 
+                    Formato de um pentágono laranja com a sombra do número 5 em branco no meio">
+                </div>
+                <p>&nbsp;
+                    O HTML foi inventado por Tim Berners-Lee, um físico do centro de 
+                    pesquisas CERN, na Suíça. Ele surgiu com a ideia de ums sistema de
+                    hipertexto na internet.
+                </p>
+                <p>&nbsp;
+                    Hipertexto signigica um texto que possui referências (links) para
+                    outros textos que podem ser acessados imediatamente.
+                </p>
+            </div>
+            
+            <div class="sub-container">
+                <h3>Como funciona?</h3>
+                <p>&nbsp;&nbsp
+                    Documentos HTML são arquivos com as extensões .html ou .htm. Eles 
+                    podem ser visualizados com qualquer navegador.
+                </p>
+                <p>&nbsp;
+                    Geralmente sites comuns possuem diversas páginas HTML. Por exemplo: 
+                    homepages, páginas explicando o propósito do site, e páginas de 
+                    contato.
+                </p>
+                <p>&nbsp;&nbsp;
+                    Cada página HTML consiste em uma série de tags (também chamdas de
+                    elementos), que podem ser consideradas os blocos de construção das
+                    páginas. Elas criam uma hierarquia que estrutura o conteúdo entre 
+                    seções, parágrafos, cabeçalhos e outros blocos de conteúdo.
+                </p>
+            </div>
+            
+            <div class="sub-container">
+                <h3>Tabela com as tags padrões</h3>
+                <table>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;!-- --&gt;</code> </strong> </td>
+                        <td>Define um comentário</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;!doctype&gt;</code> </strong> </td>
+                        <td>Define o tipo de documento</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;a&gt;</code> </strong> </td>
+                        <td>Define um hiperlink</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;article&gt;</code> </strong> </td>
+                        <td>Define um artigo</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;aside&gt;</code> </strong> </td>
+                        <td>Define o conteúdo, além do conteúdo da página</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;audio&gt;</code> </strong> </td>
+                        <td>Define o conteúdo de som incorporado</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;b&gt;</code> </strong> </td>
+                        <td>Define texto em negrito</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;body&gt;</code> </strong> </td>
+                        <td>Define o corpo do documento</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;button&gt;</code> </strong> </td>
+                        <td>Define um botão clicável</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;div&gt;</code> </strong> </td>
+                        <td>Define uma seção em um documento</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;footer&gt;</code> </strong> </td>
+                        <td>Define um rodapé para um documento ou seção</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;form&gt;</code> </strong> </td>
+                        <td>Define um formulário HTML para entrada do usuário</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;h1&gt; até &lt;h6&gt;</code> </strong> </td>
+                        <td>Define cabeçalhos HTML</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;head&gt;</code> </strong> </td>
+                        <td>Contém metadados/informações para o documento</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;header&gt;</code> </strong> </td>
+                        <td>Define um cabeçalho para um documento ou seção</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;hr&gt;</code> </strong> </td>
+                        <td>Define uma mudança temática no conteúdo</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;html&gt;</code> </strong> </td>
+                        <td>Define a raiz de um documento HTML</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;iframe&gt;</code> </strong> </td>
+                        <td>Define um quadro embutido</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;img&gt;</code> </strong> </td>
+                        <td>Define uma imagem</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;input&gt;</code> </strong> </td>
+                        <td>Define um controle de entrada</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;label&gt;</code> </strong> </td>
+                        <td>Define um rótulo para um elemento &lt;input&gt;</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;ol&gt;</code> </strong> </td>
+                        <td>Define uma lista ordenada</td>
+                    </tr>
+                    <tr>
+                        <td class="code"> <strong> <code>&lt;ul&gt;</code> </strong> </td>
+                        <td>Define uma lista não ordenada</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="sub-container">
+                <h3>Conceitos</h3>
+                <h4>Atributos</h4>
+                <p>
+                    Os atributos de uma tag são responsáveis por alterar o comportamento
+                    padrão dessa tag.
+                </p>
+            </div> 
+        </div>
+        <hr>
+        <footer>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/wanessa-koserski-dos-santos/" target="_blank">
+                    <img src="../assets/images/linkedin.png" alt="Logo do LinkedIn">
+                </a>
+                <a href="https://github.com/wanessakoserski" target="_blank">
+                    <img src="../assets/images/github.png" alt="Logo do GitHub">
+                </a>
+            </div>
 
-        <h3>Como funciona?</h3>
-        <p>
-            Documentos HTML são arquivos com as extensões .html ou .htm. Eles 
-            podem ser visualizados com qualquer navegador.
-        </p>
-        <p>
-            Geralmente sites comuns possuem diversas páginas HTML. Por exemplo: 
-            homepages, páginas explicando o propósito do site, e páginas de 
-            contato.
-        </p>
-        <p>
-            Cada página HTML consiste em uma série de tags (também chamdas de
-            elementos), que podem ser consideradas os blocos de construção das
-            páginas. Elas criam uma hierarquia que estrutura o conteúdo entre 
-            seções, parágrafos, cabeçalhos e outros blocos de conteúdo.
-        </p>
-
-        <h3>Tabela com as tags padrões</h3>
-        <table>
-            <tr>
-                <td> <strong> <code>&lt;!-- --&gt;</code> </strong> </td>
-                <td>Define um comentário</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;!doctype&gt;</code> </strong> </td>
-                <td>Define o tipo de documento</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;a&gt;</code> </strong> </td>
-                <td>Define um hiperlink</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;article&gt;</code> </strong> </td>
-                <td>Define um artigo</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;aside&gt;</code> </strong> </td>
-                <td>Define o conteúdo, além do conteúdo da página</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;audio&gt;</code> </strong> </td>
-                <td>Define o conteúdo de som incorporado</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;b&gt;</code> </strong> </td>
-                <td>Define texto em negrito</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;body&gt;</code> </strong> </td>
-                <td>Define o corpo do documento</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;button&gt;</code> </strong> </td>
-                <td>Define um botão clicável</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;div&gt;</code> </strong> </td>
-                <td>Define uma seção em um documento</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;footer&gt;</code> </strong> </td>
-                <td>Define um rodapé para um documento ou seção</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;form&gt;</code> </strong> </td>
-                <td>Define um formulário HTML para entrada do usuário</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;h1&gt; até &lt;h6&gt;</code> </strong> </td>
-                <td>Define cabeçalhos HTML</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;head&gt;</code> </strong> </td>
-                <td>Contém metadados/informações para o documento</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;header&gt;</code> </strong> </td>
-                <td>Define um cabeçalho para um documento ou seção</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;hr&gt;</code> </strong> </td>
-                <td>Define uma mudança temática no conteúdo</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;html&gt;</code> </strong> </td>
-                <td>Define a raiz de um documento HTML</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;iframe&gt;</code> </strong> </td>
-                <td>Define um quadro embutido</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;img&gt;</code> </strong> </td>
-                <td>Define uma imagem</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;input&gt;</code> </strong> </td>
-                <td>Define um controle de entrada</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;label&gt;</code> </strong> </td>
-                <td>Define um rótulo para um elemento &lt;input&gt;</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;ol&gt;</code> </strong> </td>
-                <td>Define uma lista ordenada</td>
-            </tr>
-            <tr>
-                <td> <strong> <code>&lt;ul&gt;</code> </strong> </td>
-                <td>Define uma lista não ordenada</td>
-            </tr>
-        </table>
-
-        <h3>Conceitos</h3>
-        <h4>Atributos</h4>
-        <p>
-            Os atributos de uma tag são responsáveis por alterar o comportamento
-            padrão dessa tag.
-        </p>
+            <p>
+                Todos os direitor reservados: Wanessa Koserski dos Santos &copy;
+            </p>
+        </footer> 
     </body>
 </html>
