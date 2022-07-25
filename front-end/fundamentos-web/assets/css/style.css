@@ -151,6 +151,8 @@ h1 {
     border: 2px solid #0c082c;
     box-shadow:1px 2px 2px 2px #6c274daf;
     margin: 3px 0px 3px 0px;
+    color: #be808c;
+    font-weight: bold;
 }
 
 #sugestion-container button {
